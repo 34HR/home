@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  // ==========================================
-  // ★【追加】Web Audio APIによるシンセサイザー効果音エンジン
-  // 外部音声ファイルを一切使わずに、その場でSF効果音を合成出力します
-  // ==========================================
+  
   let audioCtx = null;
   let isSoundMuted = true; // 初期状態は消音
 
   const soundToggleBtn = document.getElementById("sound-toggle-btn");
   const soundStatusLabel = document.getElementById("sound-status-label");
 
-  // 音声システムを初期化する関数
+  // 音声システムを初期化
   function initAudio() {
     if (!audioCtx) {
       audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -40,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-  // 音色を瞬時に合成して再生する関数
   function playSynthSound(type) {
     if (isSoundMuted || !audioCtx) return;
 
@@ -53,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
       const now = audioCtx.currentTime;
 
       if (type === "click") {
-        // ピッという短いコックピット音
         osc.type = "sine";
         osc.frequency.setValueAtTime(1000, now);
         osc.frequency.exponentialRampToValueAtTime(1400, now + 0.08);
@@ -63,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
         osc.stop(now + 0.08);
       } 
       else if (type === "laser") {
-        // デブリを撃ち落とす「ピシューン！」
+        
         osc.type = "triangle";
         osc.frequency.setValueAtTime(880, now);
         osc.frequency.exponentialRampToValueAtTime(110, now + 0.15);
@@ -73,28 +68,27 @@ document.addEventListener("DOMContentLoaded", function() {
         osc.stop(now + 0.15);
       } 
       else if (type === "explosion") {
-        // デブリが破壊される「ボムッ」という低音
         osc.type = "sawtooth";
         osc.frequency.setValueAtTime(100, now);
         osc.frequency.exponentialRampToValueAtTime(10, now + 0.3);
         
-        // 簡易ホワイトノイズ風フィルター接続
+        
         gain.gain.setValueAtTime(0.2, now);
         gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
         osc.start(now);
         osc.stop(now + 0.3);
       } 
       else if (type === "charge") {
-        // 連打した時の短い高周波ノイズ（エネルギーチャージ感）
+        
         osc.type = "sine";
-        osc.frequency.setValueAtTime(400 + (shieldTaps * 15), now); // 連打回数に応じて音が高くなる
+        osc.frequency.setValueAtTime(400 + (shieldTaps * 15), now); 
         gain.gain.setValueAtTime(0.1, now);
         gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
         osc.start(now);
         osc.stop(now + 0.05);
       }
       else if (type === "success") {
-        // 正解や調律完了の綺麗な和音風
+        
         osc.type = "sine";
         osc.frequency.setValueAtTime(523.25, now); // C5
         osc.frequency.setValueAtTime(659.25, now + 0.1); // E5
@@ -105,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
         osc.stop(now + 0.4);
       }
       else if (type === "fail") {
-        // 失敗時のブザー「ブーー」
+   
         osc.type = "sawtooth";
         osc.frequency.setValueAtTime(150, now);
         osc.frequency.linearRampToValueAtTime(140, now + 0.4);
@@ -120,15 +114,12 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 
-  // ==========================================
-  // ★【追加】グローバル・タップスパークエフェクト
-  // 画面のどこを触っても、サイバーな粒子が散りばめられます。
-  // ==========================================
+
   document.addEventListener("mousedown", function(e) {
     // ボタンやフォーム、ミニゲーム領域を邪魔しないようにする
     if (e.target.closest("button, input, .target, .shield-generator-core")) return;
     createGlobalSpark(e.pageX, e.pageY);
-    playSynthSound("click"); // 画面タップでも心地よいクリック音が鳴ります
+    playSynthSound("click"); 
   });
 
   // モバイル用のタッチ対応
@@ -243,12 +234,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
   // ==========================================
-  // ★【追加】ライブコックピット通信ログのスクロール出力システム
-  // 見ていて飽きない、34HRの様子がリアルタイムで流れる計器です。
+  // ★ライブコックピット通信ログのスクロール出力システム
   // ==========================================
   const logContainer = document.getElementById("live-log-container");
   
-  // 【編集エリア】ここに面白いメッセージを追加すると、リアルタイムに流れるログが増えます！
+  // 【編集エリア】
   const logDatabase = [
     "マシントラブルにより電圧がわずかに低下中...",
     "警告: 青い生物が教室の隅で寝転がっています。",
@@ -871,7 +861,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // ==========================================
   // ★【追加】キツナミ星・フォース運勢おみくじ
   // ==========================================
-  // 【編集エリア】おみくじの診断結果です。自由に書き換えてください。
+  // 【編集エリア】
   const fortuneDatabase = [
     {
       luck: "大吉 (HIGH FORCE)",
