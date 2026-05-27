@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>ホーム</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>キツナミ星からの脱出 - 【島田文化祭】34HR</title>
+  
+  <!-- Google Fonts（映画・SF風フォント） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700;900&family=Orbitron:wght@600;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- サイト全体に広がる宇宙（星空）の背景用レイヤー -->
+  <div class="space-background" id="space-bg-layer">
+    <div class="space-stars-1"></div>
+    <div class="space-stars-2"></div>
+    
+    <!-- 宇宙を駆ける流れ星 -->
+    <div class="shooting-stars-container">
+      <div class="shooting-star star-left"></div>
+      <div class="shooting-star star-right"></div>
+    </div>
+    
+    <div class="nebula"></div>
+  </div>
+
+  <!-- ==========================================
+       1. ヒーローセクション（SFオープニング演出）
+       ========================================== -->
+  <div id="opening-crawl-overlay" class="crawl-overlay">
+    
+    <!-- 宇宙空間の演出レイヤー（星雲と星々） -->
+    <div class="crawl-nebula"></div>
+    <div class="stars-layer-1"></div>
+    <div class="stars-layer-2"></div>
+    
+    <div class="crawl-stage">
+      
+      <!-- [演出1] 青いイントロ文字 -->
+      <div class="crawl-intro">
+        A long time ago in a classroom far, far away....<br>
+        <span class="crawl-intro-jp">【島田高校】の、遥か彼方の34HRにて――</span>
+      </div>
+
+      <!-- [演出2] 手前から奥へと吸い込まれる巨大タイトルロゴ -->
+      <div class="crawl-logo">
+        Planet Kitsunami<br><span class="logo-red">ESCAPE</span>
+      </div>
+
+      <!-- [演出3] 3Dで斜めに流れるストーリーテキスト -->
+      <div class="crawl-container">
+        <div class="crawl-content">
+          <p class="crawl-p">EPISODE 34</p>
+          <p class="crawl-p" style="color: #fff; font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 2rem; font-family: 'Noto Sans JP', sans-serif;">キツナミ星の試練</p>
+          <p class="crawl-p">混沌を極める文化祭の銀河系。</p>
+          <p class="crawl-p">34HRの勇敢な戦士たちは、未知 of エネルギーを求め、宇宙船を進めていた。</p>
+          <p class="crawl-p">しかし、予期せぬマシントラブルにより、彼らの船は謎に包まれた辺境の地「キツナミ星」へと不時着してしまう。</p>
+          <p class="crawl-p">そこは、気性の荒い住民たちが支配する危険な惑星だった。動かないエンジン、迫りくる謎の四天王、および青い生物を従えた恐るべき宿敵の影――。</p>
+          <p class="crawl-p">脱出の鍵は、手にしたライトセーバーと、クラスの絆のみ。34HRは無事にこの危機を乗り越え、銀河（文化祭）に平和をもたらすことができるのだろうか……。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 反応性を極限まで高めたスキップボタン -->
+    <button id="skip-btn" class="glow-button skip-button-fixed">
+      <span class="btn-main-text">SKIP ENTER</span>
+      <span class="btn-sub-text">キツナミ星へ潜入</span>
+    </button>
+  </div>
+
+
+  <!-- ==========================================
+       メインコンテンツ
+       ========================================== -->
+  <div id="main-content" class="hidden">
+
+    <!-- ヘッダー -->
+    <header class="main-header">
+      <!-- ★【追加】サウンドのON/OFF切り替えスイッチ（HUDデザイン） -->
+      <div class="sound-hud-control">
+        <button id="sound-toggle-btn" class="sound-btn">
+          <span class="sound-icon">🔇</span> SOUND: <span id="sound-status-label">OFF</span>
+        </button>
+      </div>
+
+      <div class="header-logo glitch" data-text="Planet Kitsunami">Planet Kitsunami</div>
+      <p class="header-sub">キツナミ星からの脱出 (in 34HR)</p>
+      
+      <div class="scroll-prompt">
+        <span>SCROLL TO CONSOLE</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </header>
+
+    <!-- ==========================================
+         2. ミッション（脱出ゲームの概要）
+         ========================================== -->
+    <section class="section mission-section reveal-on-scroll">
+      <h2 class="section-title">MISSION BRIEFING <span class="sub-title">/ 作戦概要</span></h2>
+      <div class="mission-card space-card sf-decor">
+        <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+        <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+        <h3>【極秘指令：キツナミ星から脱出せよ】</h3>
+        <p>君たちは反乱軍の精鋭部隊だ。しかし、予期せぬマシントラブルにより、船は謎に包まれた辺境の地「キツナミ星」へと不時着してしまった。</p>
+        <p>そこは、気性の荒い住民たちが支配する危険な惑星だった。</p>
+        <p>ボスを倒し、生きてここから脱出せよ！</p>
+        
+        <ul class="mission-rules">
+          <li><strong>体験人数：</strong> 1グループにつき最大【？？名】</li>
+          <li><strong>注意：</strong> 室内にある展示物や精密機器（もとい、段ボール製の壁や小道具）は優しく扱ってください。力づくでの脱出は厳禁です。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ★【追加】コックピット通信ログ（退屈しない自動テキストライブ） -->
+    <section class="section log-stream-section reveal-on-scroll">
+      <h2 class="section-title">COCKPIT LIVE LOG <span class="sub-title">/ 34HRリアルタイム通信</span></h2>
+      <div class="space-card sf-decor log-console-card">
+        <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+        <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+        
+        <!-- 自動で流れる通信ターミナル -->
+        <div class="terminal-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="terminal-title">SYS_STATUS: CONNECTED</span>
+        </div>
+        <div id="live-log-container" class="terminal-body">
+          <!-- JSで自動的に流れるログが追加されます -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. 暇つぶしコンソール（ミニゲーム4種類）
+         ========================================== -->
+    <section class="section game-section reveal-on-scroll">
+      <h2 class="section-title">Planet Kitsunami <span class="sub-title">/ 宇宙船の予備コンソール</span></h2>
+      <p class="section-desc">※ネタバレやヒントはありません。待機列での暇つぶしにご利用ください。</p>
+
+      <!-- 4タブ切り替えボタン -->
+      <div class="tab-container">
+        <button class="tab-button active" data-tab="tab-decoding">①暗号解読</button>
+        <button class="tab-button" data-tab="tab-shooting">②デブリ射撃</button>
+        <button class="tab-button" data-tab="tab-diagnosis">③適性診断</button>
+        <button class="tab-button" data-tab="tab-shield">④シールド復旧</button>
+      </div>
+
+      <div class="tab-contents">
+        
+        <!-- ①暗号解読ミッション -->
+        <div id="tab-decoding" class="tab-content space-card sf-decor active">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>DECODING MISSION <span class="sub-title">/ 暗号解読</span></h3>
+          <div class="game-instruction-box">
+            <p class="problem-text">【問題】</p>
+            <p class="problem-body">
+              チューバッカの年齢は約何歳?数字のみ
+            </p>
+            <p class="problem-hint">選択肢: 200歳、300歳、400歳</p>
+          </div>
+
+          <div class="decoding-form">
+            <input type="text" id="decode-input" placeholder="答えを半角数字で入力..." autocomplete="off">
+            <button id="decode-submit-btn" class="glow-button red-bg">送信 (SEND)</button>
+          </div>
+          <div id="decode-result" class="decode-result-box"></div>
+        </div>
+
+        <!-- ②デブリ射撃訓練 -->
+        <div id="tab-shooting" class="tab-content space-card sf-decor">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>DEBRIS PRACTICE <span class="sub-title">/ 宇宙デブリ迎撃訓練</span></h3>
+          <p class="game-desc">宇宙船の進行を邪魔する「キツナミ隕石デブリ」を、制限時間内に素早く撃破せよ！</p>
+          
+          <div class="shooting-status-bar">
+            <div>残り時間: <span id="shoot-timer">15</span>秒</div>
+            <div>撃破数: <span id="shoot-score">0</span></div>
+          </div>
+
+          <div id="shooting-field" class="shooting-field">
+            <div id="shooting-start-screen" class="field-overlay">
+              <button id="shooting-start-btn" class="glow-button red-bg">迎撃システム起動 (START)</button>
+            </div>
+          </div>
+          
+          <div id="shooting-result" class="hidden-result sf-decor"></div>
+        </div>
+
+        <!-- ③適性診断（5問・4択） -->
+        <div id="tab-diagnosis" class="tab-content space-card sf-decor">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>CREW APTITUDE <span class="sub-title">/ 34HRクルー適性診断</span></h3>
+          <p class="game-desc">いくつかの質問に答え、キツナミ星からの脱出作戦において、君が34HRのどの職務（役職）に向いているか調べよう。</p>
+
+          <div id="diagnosis-container">
+            <div class="diag-progress-wrap">
+              <div id="diag-progress-bar" class="diag-progress-bar"></div>
+            </div>
+            <div id="diag-question-box">
+              <h4 id="diag-q-title">質問 1 / 5</h4>
+              <p id="diag-q-text">読み込み中...</p>
+              <div class="diag-options" id="diag-options-container"></div>
+            </div>
+            <div id="diag-result-box" class="hidden-result"></div>
+          </div>
+        </div>
+
+        <!-- ④シールド復旧ゲーム（連打） -->
+        <div id="tab-shield" class="tab-content space-card sf-decor">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>SHIELD RECOVERY <span class="sub-title">/ シールド急速充電</span></h3>
+          <p class="game-desc">宇宙船の予備エネルギーを急速チャージせよ！制限時間「10秒」以内に中央のジェネレーターを連打タップし、出力を100%に引き上げろ！</p>
+          
+          <div class="shield-status-bar">
+            <div>残り時間: <span id="shield-timer">10.0</span>秒</div>
+            <div>シールド出力: <span id="shield-percent-text">0</span>%</div>
+          </div>
+
+          <div class="shield-display-container">
+            <div class="shield-fill-bar-bg">
+              <div id="shield-fill-bar" class="shield-fill-bar"></div>
+            </div>
+            <div id="shield-tap-target" class="shield-generator-core">
+              <div class="core-inner">TAP!</div>
+            </div>
+          </div>
+
+          <div class="shield-control">
+            <button id="shield-start-btn" class="glow-button red-bg" style="width: 100%; max-width: 300px; margin: 0 auto; display: block;">復旧シークエンス開始 (START)</button>
+          </div>
+
+          <div id="shield-result" class="hidden-result"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ★【追加】キツナミ星フォース運勢おみくじ（インタラクティブ占いの筐体） -->
+    <section class="section fortune-section reveal-on-scroll">
+      <h2 class="section-title">KITSUNAMI SCANNER <span class="sub-title">/ フォースおみくじ</span></h2>
+      <div class="space-card sf-decor fortune-card">
+        <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+        <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+        <h3>【フォーススキャナー】</h3>
+        <p class="game-desc">キツナミ星の不思議なエネルギー結晶を使って、今日のあなたの「フォースの偏り」と運勢を予測します。</p>
+        
+        <div class="fortune-scanner-display">
+          <div id="fortune-loader" class="fortune-loader-text hidden">SCANNING...</div>
+          <div id="fortune-display-result" class="fortune-display-result">
+            <div class="initial-prompt">SYSTEM READY / スキャンボタンを押してください</div>
+          </div>
+        </div>
+
+        <button id="fortune-scan-btn" class="glow-button red-bg" style="display:block; margin:20px auto 0; width:100%; max-width:260px;">スキャン実行 (SCAN)</button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. 作戦スケジュール / 座標（タイムスケジュール・アクセス）
+         ========================================== -->
+    <section class="section schedule-section reveal-on-scroll">
+      <h2 class="section-title">SECTOR & TIME <span class="sub-title">/ 座標と作戦時間</span></h2>
+      <div class="grid-container">
+        <div class="info-card space-card sf-decor">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>【作戦座標（場所）】</h3>
+          <p class="accent-text" style="font-size: 1.8rem; text-shadow: 0 0 10px var(--glow-red); color: var(--theme-red); font-family: 'Orbitron', sans-serif;">34HR</p>
+          <p>（階 年組 教室）</p>
+          <p style="margin-top: 10px; font-size: 0.9rem;">××が目印です。</p>
+        </div>
+        <div class="info-card space-card sf-decor">
+          <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
+          <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
+
+          <h3>【作戦時間（タイムスケジュール）】</h3>
+          <ul class="schedule-list">
+            <li><strong>6月6日：</strong> XX:XX 〜 XX:XX（最終受付 XX:XX）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. フッター
+         ========================================== -->
+    <footer class="main-footer">
+      <p>© 2026 【島田高校】 文化祭 34HR 制作委員会</p>
+      <p class="footer-sub">May the Force be with you. (フォースと共にあらんことを)</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
