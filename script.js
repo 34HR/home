@@ -501,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <span class="decor-corner top-left"></span><span class="decor-corner top-right"></span>
       <span class="decor-corner bottom-left"></span><span class="decor-corner bottom-right"></span>
 
-      <div class="shoot-result-header">島田高校34HR 迎撃評価報告書</div>
+      <div class="shoot-result-header">34HR 迎撃評価報告書</div>
       
       <div class="shoot-grid-stats">
         <div class="shoot-stat-box">
